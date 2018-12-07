@@ -1,0 +1,43 @@
+<div id = "review-form-wrapper">
+    <div id = "review-form">
+        <form action="/submitReview/{{this.name}}" method="post">
+            <strong>Overall</strong>
+            <select name="overall">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select> <br>
+
+            <strong>Service</strong>
+            <select name="service">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select> <br>
+
+            <strong>Cleanliness</strong>
+            <select name="cleanliness">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select> <br>
+
+            <strong>Would you recommend to a friend?</strong>
+            <select name="recommend">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select> <br>
+
+            <strong>Comments</strong>
+            <textarea name="comment"></textarea> <br>
+
+            <button>Submit</button>
+        </form>
+    </div>
+</div>

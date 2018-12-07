@@ -1,0 +1,71 @@
+<div id="option-container">
+    <select id="option">
+        <option value="Italian">Italian</option>
+        <option value="Mexican">Mexican</option>
+        <option value="American">American</option>
+        <option value="Asian">Asian</option>
+        <option value="Greek">Greek</option>
+        <option value="Other">Other</option>
+    </select>
+</div>
+
+{{#if restaurants}}
+    <div class="restaurants-wrapper">
+        {{#each restaurants}}
+            <div class="restaurant-container" id="{{this.name}}" value="{{this.type}}">
+                <h3 align="center"><u class="title">{{this.name}}</u></h3>
+                <div class="rating-container" id="rating-wrapper">
+                    <span class="subtitle">Rating</span>
+                    <span class="rating">{{this.overall}}</span>
+                </div>
+                <div class="rating-container">
+                    <div class="rating-item">
+                        <span class="subtitle">Type</span>
+                        <span class="descriptor">{{this.type}}</span>
+                    </div>
+                    <div class="rating-item">
+                        <span class="subtitle">Price</span>
+                        <span class="descriptor">{{this.price}}</span>
+                    </div>
+                </div>
+                <div class="reviews-wrapper">
+                    <form class="submit-form" action="/submitReview/{{this.name}}">
+                        <button class="review-link" align="center">Add Review</button>
+                    </form>
+                    <form class="submit-form" action="/reviews/{{this.name}}">
+                        <button class="review-link" align="center">Reviews</button>
+                    </form>
+                </div>
+            </div>
+            <div id="no-results">
+            </div>
+        {{/each}}
+    <div>
+{{else}}
+    <div class="restaurants-wrapper">
+        <div id="empty">
+            No Restaurants!
+        </div>
+    <div>
+{{/if}}
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+<script>
+    $("#option").on("change", function() {
+        $("#no-results").text("");
+        var val = $(this).val();
+        var count = 0;
+        $(".restaurant-container").each(function() {
+            var restaurantType = $(this).attr("value");
+            if(restaurantType == val) {
+                $(this).show();
+                count++;
+            } else {
+                $(this).hide();
+            }
+        })
+        if (count == 0) {
+            $("#no-results").text("No Matching Restaurants!");
+        }
+  });
+</script>

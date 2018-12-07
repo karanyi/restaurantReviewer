@@ -1,0 +1,37 @@
+{{#if reviews}}
+    <div class="restaurants-wrapper" id="reviews-wrapper">
+        {{#each reviews}}
+            <div class="restaurant-container" id="{{this.name}}">
+                <div class="review-rating-container" id="rating-wrapper">
+                    <span class="subtitle">Rating</span>
+                    <span class="rating">{{this.overall}}</span>
+                </div>
+                <div class="review-rating-container">
+                    <div class="rating-item">
+                        <span class="subtitle">Service</span>
+                        <span class="descriptor">{{this.service}}</span>
+                    </div>
+                    <div class="rating-item">
+                        <span class="subtitle">Recommend?</span>
+                        <span class="descriptor">{{this.recommend}}</span>
+                    </div>
+                    <div class="rating-item">
+                        <span class="subtitle">Cleanliness</span>
+                        <span class="descriptor">{{this.cleanliness}}</span>
+                    </div>
+                </div>
+                <div class="comments">
+                    <p>
+                        {{this.comment}}
+                    </p>
+                </div>
+            </div>
+        {{/each}}
+    <div>
+{{else}}
+    <div class="restaurants-wrapper">
+        <div id="empty">
+            No Reviews!
+        </div>
+    <div>
+{{/if}}
