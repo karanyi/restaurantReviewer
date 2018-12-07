@@ -127,9 +127,6 @@ HTML form route: `/submitReview/:restaurant`
 
 POST endpoint route: `/api/submitReview/:restaurant`
 
-Example Node.js POST request to endpoint: 
-
-javascript
 var request = require("request");
 
 var options = { 
