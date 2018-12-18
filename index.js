@@ -349,7 +349,6 @@ app.get('/api/service', function(req, res) {
             if (restaurant.reviews.length > 0) {
                 for (var review of restaurant.reviews) {
                     sum += review.overall;
-                    console.log(review);
                     serviceSum += review.service;
                 }
                 sum = sum / restaurant.reviews.length;
@@ -358,7 +357,6 @@ app.get('/api/service', function(req, res) {
                 restaurant.sortVal = roundToTenth(sum);
                 serviceSum = roundToTenth(serviceSum);
                 if (serviceSum >= 3.3) {
-                    console.log(serviceSum);
                     arr.push(restaurant);
                 }
             } else {
@@ -440,12 +438,10 @@ app.get('/api/', function(req, res) {
 
 app.post('/api/submitRestaurant', function(req, res) {
     var failed = false;
-    console.log(req.body);
 
     if (!prices.includes(req.body.price) || !allergens.includes(req.body.allergen) ||
     !types.includes(req.body.type)) {
         failed = true;
-        console.log(req.body.price);
     }
 
     var allergenFriendly = req.body.allergen == "yes" ? true : false;
